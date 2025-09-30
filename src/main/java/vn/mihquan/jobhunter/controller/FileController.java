@@ -29,7 +29,7 @@ import vn.mihquan.jobhunter.util.error.StorageException;
 @RequestMapping("/api/v1")
 public class FileController {
     @Value("${hoidanit.upload-file.base-uri}")
-    private String baseUri;
+    private String baseURI;
 
     private final FileService fileService;
 
@@ -54,7 +54,7 @@ public class FileController {
             throw new StorageException("Invalid file extension. only allow " + allowedExtensions.toString());
         }
         // create a directory if no exist
-        this.fileService.createDirectory(baseUri + folder);
+        this.fileService.createDirectory(baseURI + folder);
         // store file
         String uploadFile = this.fileService.store(file, folder);
 

@@ -19,7 +19,9 @@ public class CompanyService {
     private final CompanyRepository companyRepository;
     private final UserRepository userRepository;
 
-    public CompanyService(CompanyRepository companyRepository, UserRepository userRepository) {
+    public CompanyService(
+            CompanyRepository companyRepository,
+            UserRepository userRepository) {
         this.companyRepository = companyRepository;
         this.userRepository = userRepository;
     }
@@ -47,12 +49,12 @@ public class CompanyService {
     public Company handleUpdateCompany(Company c) {
         Optional<Company> companyOptional = this.companyRepository.findById(c.getId());
         if (companyOptional.isPresent()) {
-            Company currrentCompany = companyOptional.get();
-            currrentCompany.setLogo(c.getLogo());
-            currrentCompany.setName(c.getName());
-            currrentCompany.setDescription(c.getDescription());
-            currrentCompany.setAddress(c.getAddress());
-            return this.companyRepository.save(currrentCompany);
+            Company currentCompany = companyOptional.get();
+            currentCompany.setLogo(c.getLogo());
+            currentCompany.setName(c.getName());
+            currentCompany.setDescription(c.getDescription());
+            currentCompany.setAddress(c.getAddress());
+            return this.companyRepository.save(currentCompany);
         }
         return null;
     }
